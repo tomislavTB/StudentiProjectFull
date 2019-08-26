@@ -1,0 +1,9 @@
+C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Model\bin\Debug\netstandard2.0\StudentiProject.Model.deps.json
+C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Model\bin\Debug\netstandard2.0\StudentiProject.Model.dll
+C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Model\bin\Debug\netstandard2.0\StudentiProject.Model.pdb
+C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Model\obj\Debug\netstandard2.0\StudentiProject.Model.csprojAssemblyReference.cache
+C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Model\obj\Debug\netstandard2.0\StudentiProject.Model.csproj.CoreCompileInputs.cache
+C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Model\obj\Debug\netstandard2.0\StudentiProject.Model.AssemblyInfoInputs.cache
+C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Model\obj\Debug\netstandard2.0\StudentiProject.Model.AssemblyInfo.cs
+C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Model\obj\Debug\netstandard2.0\StudentiProject.Model.dll
+C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Model\obj\Debug\netstandard2.0\StudentiProject.Model.pdb

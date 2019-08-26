@@ -1,0 +1,32 @@
+<div>
+  <div [hidden]="errorMessage.length == 0">{{ errorMessage }}</div>
+  <form (submit)="onSubmit()" #gameForm="ngForm">
+      <input title="id" name="id" type="hidden" [(ngModel)]="grade.id" />
+<div class="form-group">
+  <label for="title">Vrijeme ispita</label>
+  <input type="text" name="title" [(ngModel)]="grade.examTime" class="form-control" id="title">
+</div>
+<div class="form-group">
+  <label for="evaluation">Ocjena</label>
+  <input name="evaluation" type="text" title="evaluation" [(ngModel)]="grade.evaluation" class="form-control" id="evaluation">
+</div>
+<div class="form-group">
+  <label for="courseId">Izaberi kolegij</label>
+  <select class="form-control" name="courseId" [(ngModel)]="grade.courseId">
+    <option *ngFor="let course of courses" [value]="course.id">
+      {{course.name}}
+    </option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="studentId">Izaberi studenta</label>
+  <select class="form-control" name="studentId" [(ngModel)]="grade.studentId">
+    <option *ngFor="let student of students" [value]="student.id">
+      {{student.firstName + student.lastName}}
+    </option>
+  </select>
+</div>
+<button (click)="goBack()" class="btn btn-outline-primary float-left">Odustani</button>
+<button type="submit" class="btn btn-primary float-right">Spremi</button>
+</form>
+</div>

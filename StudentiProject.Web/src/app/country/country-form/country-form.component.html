@@ -1,0 +1,12 @@
+<div>
+  <div [hidden]="errorMessage.length == 0">{{ errorMessage }}</div>
+  <form (submit)="onSubmit()" #gameForm="ngForm">
+      <input title="id" name="id" type="hidden" [(ngModel)]="country.id" />
+<div class="form-group">
+  <label for="title">Država</label>
+  <input type="text" name="title" [(ngModel)]="country.name" class="form-control" id="title">
+</div>
+<button (click)="goBack()" class="btn btn-outline-primary float-left">Odustani</button>
+<button type="submit" class="btn btn-primary float-right">Spremi</button>
+</form>
+</div>

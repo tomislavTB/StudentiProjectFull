@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+.btn {
+  background-color: #343a40; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: auto; /* Some padding */
+  margin: auto;
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+.btn.delete:hover {
+  background-color: lightcoral;
+}
