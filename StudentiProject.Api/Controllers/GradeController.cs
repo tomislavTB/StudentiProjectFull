@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using StudentiProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using StudentiProject.Requests;
 
 namespace StudentiProject.Controllers
 {
@@ -46,15 +47,13 @@ namespace StudentiProject.Controllers
             return GradeItem;
         }
         [HttpPost]
-        public async Task<IActionResult> PostGradeItem(Grade item)
+        public async Task<IActionResult> PostGradeItem(GradeInsertRequest request)
         {
-
-            if (!ModelState.IsValid)
-
-            {
-                return ValidationProblem(ModelState);
-            }
-            _context.Grades.Add(item);
+            _context.Grades.Add(new Grade {
+                Evaluation = request.Evaluation,
+                CourseId = request.CourseId,
+                StudentId = request.StudentId
+            });
             await _context.SaveChangesAsync();
             return StatusCode(201);
         }

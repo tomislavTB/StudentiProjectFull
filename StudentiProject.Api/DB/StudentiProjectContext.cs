@@ -8,10 +8,13 @@ using System;
 using StudentiProject.Extensions.ModelBuilder;
 using StudentiProject.Models.Interfaces;
 using StudentiProject.Extensions.NewContext;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using StudentiProject.Model.Users;
 
 namespace StudentiProject.DB
 {
-    public class StudentiProjectContext : DbContext
+    public class StudentiProjectContext : IdentityDbContext<AuthUser, IdentityRole<int>, int>
     {
         public StudentiProjectContext(DbContextOptions<StudentiProjectContext> options)
             : base(options)
