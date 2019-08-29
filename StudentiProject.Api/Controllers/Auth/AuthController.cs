@@ -35,13 +35,21 @@ namespace StudentiProject.Controllers.Auth
             _configuration = configuration;
         }
         [HttpPost("login")]
-        public async Task<object> Login([FromBody] LoginRequest model)
+        public async Task<RegisterResponse> Login([FromBody] LoginRequest model)
         {
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
             if (result.Succeeded)
             {
                 var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-                return GenerateJwtToken(model.Email, appUser);
+                return new RegisterResponse
+                {
+                    User = new AuthUserResponse
+                    {
+                        Id = appUser.Id,
+                        Email = appUser.Email
+                    },
+                    Token = GenerateJwtToken(appUser.Email, appUser).ToString()
+                };
             }
             throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
         }
@@ -52,14 +60,23 @@ namespace StudentiProject.Controllers.Auth
             {
                 UserName = model.Email,
                 Email = model.Email,
-                FirstName = model.Email,
-                LastName = model.Email
+                FirstName = model.FirstName,
+                LastName = model.LastName
             };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, false);
-                return GenerateJwtToken(model.Email, user);
+                
+                return new RegisterResponse
+                {
+                    User = new AuthUserResponse
+                    {
+                        Id = user.Id,
+                        Email = user.Email
+                    },
+                    Token = GenerateJwtToken(user.Email, user).ToString()
+                };
             }
             throw new ApplicationException("UNKNOWN_ERROR");
         }

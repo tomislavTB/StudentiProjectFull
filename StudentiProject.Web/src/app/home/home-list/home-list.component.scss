@@ -1,16 +1,35 @@
+
+
 .container {
   position: relative;
-  max-width: 800px; /* Maximum width */
-  margin: 0 auto; /* Center it */
+  width: 100%;
 }
 
-.container .content {
-  position: absolute; /* Position the background text */
-  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-  color: #f1f1f1; /* Grey text */
-  width: 100%; /* Full width */
-  padding: 20px; /* Some padding */
+.container img {
+  width: 100%;
+  line-height: 100%;
 }
 
+.login .btn {
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 14px 80px;
+  cursor: pointer;
+  color: #fff;
+  background-color: rgb( 33, 37, 41);
+  font-weight: 100;
+  border: 3px solid gray;
+  box-shadow: black;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  border-radius: 10%;
+  float: right;
+  padding: 10px 24px;
+}
+
+
+.login .btn:hover {
+  background-color:  rgb( 33, 37, 41, 0.5);
+  border: 3px solid red;
+}

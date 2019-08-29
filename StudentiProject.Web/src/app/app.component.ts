@@ -1,11 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { JwtHelper } from './auth/jwt.helper';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'StudentiProjectApp';
+export class AppComponent implements OnInit {
+
+  constructor(
+    private jwt: JwtHelper
+  ) { }
+
+  // tslint:disable-next-line:member-ordering
+  public user = {
+    email: ''
+  };
+
+  title = 'StudentiProject-web';
+
+  ngOnInit() {
+    this.setUser();
+  }
+
+  public setUser() {
+    this.user = this.jwt.getUser();
+  }
 }
 

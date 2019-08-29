@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { GetstartedModule } from './getstarted/getstarted.module';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    GetstartedModule,
     CountryModule,
     CollegeModule,
     CourseModule,
