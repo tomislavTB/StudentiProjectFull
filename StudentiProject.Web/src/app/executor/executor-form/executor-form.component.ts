@@ -65,7 +65,7 @@ export class ExecutorFormComponent implements OnInit {
     // this.city.countryId = 1;
     this.executorService.submit(this.executor).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Uspješno uneseno');
         this.router.navigate(['executors']);
         this.form.hide();
       },

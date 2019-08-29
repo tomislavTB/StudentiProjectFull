@@ -22,7 +22,10 @@ namespace StudentiProject.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Executor>>> GetExecutorItem()
         {
-            return await _context.Executors.ToListAsync();
+            return await _context.Executors
+                .Include(c => c.Teacher)
+                .Include(c => c.Course)
+                .ToListAsync();
         }
 
 

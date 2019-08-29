@@ -12,11 +12,12 @@ import { DivisionModule } from './division/division.module';
 import { CourseModule } from './course/course.module';
 import { CollegeModule } from './college/college.module';
 import { CountryModule } from './country/country.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { GetstartedModule } from './getstarted/getstarted.module';
+import { AuthTokenInterceptor } from './shared/auth-token.interceptor';
 
 
 @NgModule({
@@ -42,7 +43,9 @@ import { GetstartedModule } from './getstarted/getstarted.module';
     ToastrModule.forRoot()
 
   ],
-  providers: [],
+    providers: [
+      { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

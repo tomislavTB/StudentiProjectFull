@@ -55,7 +55,7 @@ export class CourseFormComponent implements OnInit {
     this.selectedDivisionId = this.course.divisionId;
     this.courseService.submit(this.course).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Uspješno uneseno');
         this.router.navigate(['courses']);
         this.form.hide();
       },

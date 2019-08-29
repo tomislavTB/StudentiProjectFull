@@ -1,12 +1,32 @@
 <div>
 <body>
 <div class= "login">
-<h2>Dobrodošli na mrežu fakulteta!  <button class="btn" *ngIf="!user || user.email.length == 0">
+
+
+<div class= 'test' *ngIf="!user || user.email.length == 0">
+
+    <h2>Dobrodošli na mrežu fakulteta!
+
+  <button class="btn">
   <a [routerLink]="['/getstarted']" class="nav-link" href="#">
     <font size="5" color="white"> <b>Login</b> </font>
   </a>
 </button></h2>
-<h4>Prijavite se za korištenje --> </h4>
+    <h4>Prijavite se za korištenje --> </h4>
+</div>
+
+
+<div class= 'brutala' *ngIf="user && user.email && user.email.length > 0">
+
+    <h2>Uspješno ste se prijavili na našu stranicu</h2>
+    <h4>Sretno </h4>
+</div>
+
+
+
+
+
+
 <div>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

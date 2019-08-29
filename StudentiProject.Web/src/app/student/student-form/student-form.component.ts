@@ -63,7 +63,7 @@ export class StudentFormComponent implements OnInit {
     this.selectedDivisionId = this.student.divisionId;
     this.studentService.submit(this.student).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Uspješno uneseno');
         this.router.navigate(['students']);
         this.form.hide();
       },
@@ -75,8 +75,8 @@ export class StudentFormComponent implements OnInit {
       });
   }
   getCities() {
-    this.cityService.getAll().subscribe(response => {
-      this.cities = response;
+    this.cityService.getAll().subscribe((response: any) => {
+      this.cities = response.response.data;
     }
     );
 

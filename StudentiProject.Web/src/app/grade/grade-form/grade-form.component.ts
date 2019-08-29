@@ -63,7 +63,7 @@ export class GradeFormComponent implements OnInit {
 
     this.gradeService.submit(this.grade).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Uspješno uneseno');
         this.router.navigate(['grades']);
         this.form.hide();
       },

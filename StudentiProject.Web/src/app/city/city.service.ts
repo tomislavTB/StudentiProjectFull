@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { PaginationResponse } from '../shared/Response/PaginationResponse';
 import { map } from 'rxjs/operators';
 import { City } from './city';
+import { JwtHelper } from '../auth/jwt.helper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CityService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private jwt: JwtHelper) { }
 
   private readonly CITIES_URL = 'cities';
 
@@ -22,7 +24,9 @@ export class CityService {
   }
 
   public getAll() {
-    return this.http.get(environment.apiUrl + this.CITIES_URL);
+    const token = this.jwt.getFullToken();
+    let headers = new  HttpHeaders().set('Authorization', token);
+    return this.http.get(environment.apiUrl + this.CITIES_URL, { headers });
   }
 
   public deleteOne(cityId) {

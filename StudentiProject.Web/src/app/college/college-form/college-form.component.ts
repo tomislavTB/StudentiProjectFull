@@ -54,7 +54,7 @@ export class CollegeFormComponent implements OnInit {
     this.selectedCityId = this.college.cityId;
     this.collegeService.submit(this.college).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Uspješno uneseno');
         this.router.navigate(['colleges']);
         this.form.hide();
       },

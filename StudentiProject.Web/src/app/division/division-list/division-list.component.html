@@ -16,6 +16,7 @@
       <thead class="thead-dark">
           <tr>
               <th scope="col">Smjer</th>
+              <th scope="col">Fakultet</th>
               <th scope="col" rowspan="2">Actions</th>
 
 
@@ -24,6 +25,7 @@
       <tbody>
           <tr *ngFor="let division of divisions; let i = index">
               <td>{{ division.name }}</td>
+              <td>{{ division.college.name }}</td>
 
               <td class="action">
                   <button class="btn btn-sm"><i class="fa fa-edit" (click)="onEdit(division.id)"></i></button>
@@ -59,7 +61,7 @@
     </div>
       <div class="dropdown float-right">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            25
+            10
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item">25</a>

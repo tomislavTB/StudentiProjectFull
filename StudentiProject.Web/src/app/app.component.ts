@@ -26,5 +26,8 @@ export class AppComponent implements OnInit {
   public setUser() {
     this.user = this.jwt.getUser();
   }
+  public delStorage() {
+    localStorage.clear();
+    location.href = 'home';
+  }
 }
-

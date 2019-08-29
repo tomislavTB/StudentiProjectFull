@@ -24,7 +24,9 @@ namespace StudentiProject.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Division>>> GetDivisionItem()
         {
-            return await _context.Divisions.ToListAsync();
+            return await _context.Divisions
+                .Include(c => c.College)
+                .ToListAsync();
         }
 
 

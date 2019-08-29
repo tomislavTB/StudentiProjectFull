@@ -105,10 +105,10 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{ user.email }}
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-menu dropdown-menu-right" style="background-color: red" aria-labelledby="navbarDropdownMenuLink" >
+          <a class="dropdown-item" (click)="delStorage()">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <font size="4" color="white"> <b>Logout</b> </font></a>
         </div>
       </li>
     </ul>

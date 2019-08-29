@@ -54,7 +54,7 @@ export class TeacherFormComponent implements OnInit {
     this.selectedCityId = this.teacher.cityId;
     this.teacherService.submit(this.teacher).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Uspješno uneseno');
         this.router.navigate(['teachers']);
         this.form.hide();
       },
@@ -70,8 +70,8 @@ export class TeacherFormComponent implements OnInit {
     this.location.back();
   }
   getCities() {
-    this.cityService.getAll().subscribe(response => {
-      this.cities = response;
+    this.cityService.getAll().subscribe((response: any) => {
+      this.cities = response.response.data;
     }
     );
   }

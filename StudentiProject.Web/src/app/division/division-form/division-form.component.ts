@@ -55,7 +55,7 @@ export class DivisionFormComponent implements OnInit {
     // this.city.countryId = 1;
     this.divisionService.submit(this.division).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Uspješno uneseno');
         this.router.navigate(['divisions']);
         this.form.hide();
       },
@@ -71,8 +71,8 @@ export class DivisionFormComponent implements OnInit {
     this.location.back();
   }
   getColleges() {
-    this.collegeService.getAll().subscribe(response => {
-      this.colleges = response;
+    this.collegeService.getAll().subscribe((response: any) => {
+      this.colleges = response.response.data;
     }
     );
   }

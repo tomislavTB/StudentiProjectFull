@@ -54,7 +54,7 @@ export class CountryFormComponent implements OnInit {
     // this.city.countryId = 1;
     this.countryService.submit(this.country).subscribe(
       (response: any) => {
-        this.toastr.success('Bravo');
+        this.toastr.success('Uspješno uneseno');
         this.router.navigate(['countries']);
         this.form.hide();
       },

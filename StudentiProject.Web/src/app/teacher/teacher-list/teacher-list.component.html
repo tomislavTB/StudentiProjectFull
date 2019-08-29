@@ -17,6 +17,7 @@
               <th scope="col">Ime</th>
               <th scope="col">Prezime</th>
               <th scope="col">Adresa</th>
+              <th scope="col">Grad</th>
               <th scope="col">Is Active</th>
               <th scope="col">Actions</th>
           </tr>
@@ -26,6 +27,7 @@
               <td>{{ teacher.firstName }}</td>
               <td>{{ teacher.lastName }}</td>
               <td>{{ teacher.address }}</td>
+              <td>{{ teacher.city.name }}</td>
               <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="customSwitch1">
                 <label class="custom-control-label" for="customSwitch1">Aktivan</label>
@@ -64,7 +66,7 @@
     </div>
       <div class="dropdown float-right">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            25
+            10
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item">25</a>

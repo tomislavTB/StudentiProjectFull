@@ -24,6 +24,7 @@ namespace StudentiProject.Controllers
         public async Task<ActionResult<IEnumerable<Teacher>>> GetTeacherItem()
         {
             return await _context.Teachers
+                .Include(c => c.City)
                 .ToListAsync();
         }
 
