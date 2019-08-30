@@ -15,7 +15,7 @@ namespace StudentiProject.Controllers
     [Route("api/cities")]
     [ApiController]
 
-    public class CityController : BaseController
+    public class CityController : AppAuthorizedController
     {
         private readonly ICityService Cities;
 

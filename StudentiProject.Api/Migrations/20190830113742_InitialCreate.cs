@@ -590,12 +590,6 @@ namespace StudentiProject.Migrations
                 column: "DivisionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Students_FirstName_LastName",
-                table: "Students",
-                columns: new[] { "FirstName", "LastName" },
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Teachers_AuthUserId",
                 table: "Teachers",
                 column: "AuthUserId");
@@ -606,9 +600,9 @@ namespace StudentiProject.Migrations
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Teachers_FirstName_LastName",
+                name: "IX_Teachers_FirstName_LastName_Address",
                 table: "Teachers",
-                columns: new[] { "FirstName", "LastName" },
+                columns: new[] { "FirstName", "LastName", "Address" },
                 unique: true);
         }
 

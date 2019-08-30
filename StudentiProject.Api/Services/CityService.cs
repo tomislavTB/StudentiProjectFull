@@ -31,7 +31,8 @@ namespace StudentiProject.Services
                 .Select(i => new CityResponse
                 {
                     Id = i.Id,
-                    Name = i.Name
+                    Name = i.Name,
+                    Zip = i.Zip
 
                 })
                 .ToPagedResultAsync(request);
@@ -46,7 +47,8 @@ namespace StudentiProject.Services
                 .Select(i => new CityResponse
                 {
                     Id = i.Id,
-                    Name = i.Name
+                    Name = i.Name,
+                    Zip = i.Zip
 
                 })
                 .FirstAsync();

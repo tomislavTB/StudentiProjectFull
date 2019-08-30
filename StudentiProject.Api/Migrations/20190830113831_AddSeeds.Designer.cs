@@ -10,7 +10,7 @@ using StudentiProject.DB;
 namespace StudentiProject.Migrations
 {
     [DbContext(typeof(StudentiProjectContext))]
-    [Migration("20190828075711_AddSeeds")]
+    [Migration("20190830113831_AddSeeds")]
     partial class AddSeeds
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -710,9 +710,6 @@ namespace StudentiProject.Migrations
 
                     b.HasIndex("DivisionId");
 
-                    b.HasIndex("FirstName", "LastName")
-                        .IsUnique();
-
                     b.ToTable("Students");
 
                     b.HasData(
@@ -799,7 +796,7 @@ namespace StudentiProject.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.HasIndex("FirstName", "LastName")
+                    b.HasIndex("FirstName", "LastName", "Address")
                         .IsUnique();
 
                     b.ToTable("Teachers");

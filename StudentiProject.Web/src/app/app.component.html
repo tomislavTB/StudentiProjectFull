@@ -28,9 +28,19 @@
   </div>
 
 
+  <div class= 'test' *ngIf="!user || user.email.length == 0">
+
+  <button class="btn">
+  <a [routerLink]="['/getstarted']" class="nav-link" href="#">
+    <font size="5" color="white"> <b>Login</b> </font>
+  </a>
+</button>
+</div>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="user && user.email && user.email.length > 0">
     <ul class="navbar-nav mr-auto font-weight-bold">
       <li class="nav-item text-center">
         <a [routerLink]="['/cities']">
@@ -91,8 +101,6 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
-  <!-- Coded with love by Mutiullah Samim-->
   <body>
 
       <title>Awesome Search Box</title>
@@ -125,9 +133,6 @@
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </header>
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
 <footer style="margin: 30px 0;">
   </footer>
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/auth/login.service';
 import { JwtHelper } from 'src/app/auth/jwt.helper';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-getstarted-list',
@@ -14,7 +15,8 @@ export class GetstartedListComponent implements OnInit {
 
   constructor(
     private auth: LoginService,
-    private jwt: JwtHelper
+    private jwt: JwtHelper,
+    private toastr: ToastrService
   ) { }
 
   public loginData = {
@@ -39,6 +41,10 @@ export class GetstartedListComponent implements OnInit {
       this.jwt.setToken(token);
       this.jwt.setUser(response.user);
       location.href = 'home';
+      this.toastr.success('Uspješno ste se registrirali');
+    }, error => {
+      this.toastr.error('Neuspješna registracija, provjerite unesene podatke');
+      this.registerData.password = '';
     });
     return false;
   }
@@ -49,6 +55,10 @@ export class GetstartedListComponent implements OnInit {
       this.jwt.setToken(token);
       this.jwt.setUser(response.user);
       location.href = 'home';
+      this.toastr.success('Uspješno ste se prijavili');
+    }, error => {
+      this.toastr.error('Pogrešna kombinacija emaila/lozinke.');
+      this.loginData.password = '';
     });
     return false;
   }

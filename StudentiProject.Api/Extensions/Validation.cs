@@ -12,12 +12,9 @@ namespace StudentiProject.Extensions.ModelBuilder
         private static void User(Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Teacher>()
-                 .HasIndex(p => new { p.FirstName, p.LastName })
+                 .HasIndex(p => new { p.FirstName, p.LastName, p.Address })
                 .IsUnique(true);
 
-            modelBuilder.Entity<Student>()
-                 .HasIndex(p => new { p.FirstName, p.LastName })
-                .IsUnique(true);
 
         }
     }

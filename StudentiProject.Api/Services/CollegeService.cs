@@ -30,7 +30,8 @@ namespace StudentiProject.Services
                 .Select(i => new CollegeResponse
                 {
                     Id = i.Id,
-                    Name = i.Name
+                    Name = i.Name,
+                    Address = i.Address
 
                 })
                 .ToPagedResultAsync(request);
@@ -45,7 +46,8 @@ namespace StudentiProject.Services
                 .Select(i => new CollegeResponse
                 {
                     Id = i.Id,
-                    Name = i.Name
+                    Name = i.Name,
+                    Address = i.Address
 
                 })
                 .FirstAsync();
