@@ -33,3 +33,32 @@
   background-color:  rgb( 33, 37, 41, 0.5);
   border: 3px solid red;
 }
+
+.test {
+  color: rgb(6, 5, 58)
+
+}
+
+.slika {
+  background-image: url("https://backgrounddownload.com/wp-content/uploads/2018/09/background-images-for-websites-professional-brown-4.jpg");
+  position: absolute;
+  top: 11%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.slika .content {
+  position: absolute; /* Position the background text */
+  top: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 70%; /* Full width */
+  padding: 20px; /* Some padding */
+  left: 30%;
+  margin-right: -50%;
+}

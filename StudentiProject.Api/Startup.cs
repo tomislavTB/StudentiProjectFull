@@ -90,11 +90,11 @@ namespace StudentiProject
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options =>
-                {
+            {
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 });
 
-
+            services.AddCors();
         }
 
 
@@ -115,6 +115,7 @@ namespace StudentiProject
             }
 
             app.UseAuthentication();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseMvc(routes =>
             {
