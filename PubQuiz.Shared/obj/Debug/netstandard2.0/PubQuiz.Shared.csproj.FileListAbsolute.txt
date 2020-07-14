@@ -1,0 +1,9 @@
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Shared\bin\Debug\netstandard2.0\PubQuiz.Shared.deps.json
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Shared\bin\Debug\netstandard2.0\PubQuiz.Shared.dll
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Shared\bin\Debug\netstandard2.0\PubQuiz.Shared.pdb
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Shared\obj\Debug\netstandard2.0\PubQuiz.Shared.csprojAssemblyReference.cache
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Shared\obj\Debug\netstandard2.0\PubQuiz.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Shared\obj\Debug\netstandard2.0\PubQuiz.Shared.AssemblyInfoInputs.cache
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Shared\obj\Debug\netstandard2.0\PubQuiz.Shared.AssemblyInfo.cs
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Shared\obj\Debug\netstandard2.0\PubQuiz.Shared.dll
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Shared\obj\Debug\netstandard2.0\PubQuiz.Shared.pdb

@@ -1,0 +1,12 @@
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\bin\Debug\netstandard2.0\PubQuiz.Model.deps.json
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\bin\Debug\netstandard2.0\PubQuiz.Model.dll
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\bin\Debug\netstandard2.0\PubQuiz.Model.pdb
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.xml
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\obj\Debug\netstandard2.0\PubQuiz.Model.csprojAssemblyReference.cache
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\obj\Debug\netstandard2.0\PubQuiz.Model.csproj.CoreCompileInputs.cache
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\obj\Debug\netstandard2.0\PubQuiz.Model.AssemblyInfoInputs.cache
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\obj\Debug\netstandard2.0\PubQuiz.Model.AssemblyInfo.cs
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\obj\Debug\netstandard2.0\PubQuiz.Model.csproj.CopyComplete
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\obj\Debug\netstandard2.0\PubQuiz.Model.dll
+C:\Users\Tomislav\Desktop\Zavrsni rad\PubQuiz\PubQuiz.Model\obj\Debug\netstandard2.0\PubQuiz.Model.pdb

@@ -1,9 +1,0 @@
-C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Shared\obj\Debug\netstandard2.0\StudentiProject.Shared.csprojAssemblyReference.cache
-C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Shared\obj\Debug\netstandard2.0\StudentiProject.Shared.csproj.CoreCompileInputs.cache
-C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Shared\obj\Debug\netstandard2.0\StudentiProject.Shared.AssemblyInfoInputs.cache
-C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Shared\obj\Debug\netstandard2.0\StudentiProject.Shared.AssemblyInfo.cs
-C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Shared\bin\Debug\netstandard2.0\StudentiProject.Shared.deps.json
-C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Shared\bin\Debug\netstandard2.0\StudentiProject.Shared.dll
-C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Shared\bin\Debug\netstandard2.0\StudentiProject.Shared.pdb
-C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Shared\obj\Debug\netstandard2.0\StudentiProject.Shared.dll
-C:\Users\Tomislav\Desktop\StudentProjekt\StudentiProject\StudentiProject.Shared\obj\Debug\netstandard2.0\StudentiProject.Shared.pdb

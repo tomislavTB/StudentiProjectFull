@@ -1,0 +1,74 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<div class="bg" id="bg">
+    <div class="col-sm-4 ml-auto mr-auto">
+      <ul class="nav nav-pills nav-fill mb-1" id="pills-tab" role="tablist">
+        <li class="nav-item"> <a class="nav-link active" id="pills-signin-tab" data-toggle="pill" href="#pills-signin" role="tab" aria-controls="pills-signin" aria-selected="true">Log In</a> </li>
+        <li class="nav-item"> <a class="nav-link" id="pills-signup-tab" data-toggle="pill" href="#pills-signup" role="tab" aria-controls="pills-signup" aria-selected="false">Register</a> </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-signin" role="tabpanel" aria-labelledby="pills-signin-tab">
+          <div class="col-sm-12">
+            <div class="text-center"><img src="http://www.sclance.com/images/login/Login_567866.png" class="rounded-circle border p-1"></div>
+            <form (ngSubmit)="onSubmit()" #novaForma="ngForm" id="singninFrom">
+              <div class="form-group">
+                <label class="font-weight-bold">Email *</label>
+                <input type="text" name="email" id="email" [(ngModel)]="loginData.email" class="form-control" placeholder="Unesite valjanu email adresu" required>
+                
+
+              </div>
+              <div class="form-group">
+                <label class="font-weight-bold">Password *</label>
+                <input type="password" name="password" id="password" [(ngModel)]="loginData.password" class="form-control" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col">
+                    <label><input type="checkbox" name="condition" id="condition"> Remember me.</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="submit" (click)="loginSubmit()" value="Login" class="btn btn-block btn-primary">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab">
+          <div class="col-sm-12">
+                <div class="text-center"><img src="https://masterstart.com/images/student.svg?id=3949adc398005d8f83a9" class="rounded-circle border p-1"></div>
+            <form method="post" id="singnupFrom">
+              <div class="form-group">
+                <label class="font-weight-bold">Ime *</label>
+                <input type="text" name="firstname" id="firstname" [(ngModel)]="registerData.firstname" class="form-control"  placeholder="Unesite vaše ime" required>
+              </div>
+              <div class="form-group">
+                <label class="font-weight-bold">Prezime *</label>
+                <input type="text" name="lastname" id="lastname" [(ngModel)]="registerData.lastname" class="form-control" placeholder="Unesite vaše prezime" required>
+              </div>
+              <div class="form-group">
+                  <label class="font-weight-bold">Spol *</label>
+                  <input type="text" name="gender" id="gender" [(ngModel)]="registerData.gender" class="form-control" placeholder="Unesite spol: M or ž" required>
+                </div>
+              <div class="form-group">
+                  <label class="font-weight-bold">Email *</label>
+                   <input type="text" name="email" id="email" [(ngModel)]="registerData.email" class="form-control" placeholder="Unesite valjanu email adresu " required>
+                </div>
+              <div class="form-group">
+                <label class="font-weight-bold">Password *</label>
+                <input type="password" name="password" id="password" [(ngModel)]="registerData.password" class="form-control" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+                  required>
+              </div>
+              <div class="form-group">
+                <input type="submit" (click)="onSubmit()" value="Register" class="btn btn-block btn-primary">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
