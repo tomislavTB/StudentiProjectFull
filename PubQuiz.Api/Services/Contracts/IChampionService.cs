@@ -13,9 +13,8 @@ namespace PubQuiz.Services.Contracts
         Task<ChampionResponse> GetByIdAsync(int id);
 
         Task<int> DeleteByIdAsync(int id);
-
-        Task<Champion> FindAsync(int id);
         Task<int> PutChampion(Champion item);
+        Task<Champion> FindAsync(int id);
         Task<Champion> PostChampion(Champion item);
     }
 }

@@ -25,6 +25,7 @@ namespace PubQuiz.DB
         public DbSet<QuizTheme> QuizThemes { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Champion> Champion { get; set; }
+        public DbSet<AuthUser> AuthUser { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

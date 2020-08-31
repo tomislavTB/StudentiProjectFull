@@ -13,7 +13,7 @@ namespace PubQuiz.Models
         public int NoticeBoardId { get; set; }
         public NoticeBoard NoticeBoard { get; set; }
 
-        public int AuthUserId { get; set; }
+        public string Name { get; set; }
 
     }
 }

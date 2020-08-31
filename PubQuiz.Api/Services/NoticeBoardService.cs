@@ -9,6 +9,9 @@ using PubQuiz.Services.Contracts;
 using Microsoft.EntityFrameworkCore;
 using PubQuiz.Services;
 using PubQuiz.Models;
+using System.Security.Claims;
+using PubQuiz.Model.Users;
+using System.Linq;
 
 namespace PubQuiz.Services
 {
@@ -23,23 +26,66 @@ namespace PubQuiz.Services
             _context = context;
         }
 
-        public async Task<PagedResult<NoticeBoardResponse>> GetPageAsync(NoticeBoardRequest request)
+        public async Task<PagedResult<NoticeBoardResponse>> GetPageAsync(long userId, NoticeBoardRequest request = null)
         {
-            PagedResult<NoticeBoardResponse> pagedResult = await _context
-                .NoticeBoards.AsQueryable()
+
+            if (userId > 0)
+            {
+                PagedResult<NoticeBoardResponse> pagedResult = await _context
+
+                .NoticeBoards.AsQueryable().Include(a => a.Country).Include(a => a.City).Include(a => a.QuizTheme).Include(a => a.AuthUser).Where(a => a.AuthUser.Id == userId)
                 .Select(i => new NoticeBoardResponse
-                {
+
+            {
                     Id = i.Id,
                     Name = i.Name,
                     DateWhen = i.DateWhen,
-                    CityId = i.CityId
+                    CityId = i.CityId,
+                    AuthUserId = i.AuthUserId,
+                    AuthUser = i.AuthUser,
+                    Country = i.Country,
+                    CountryId = i.CountryId,
+                    City = i.City,
+                    QuizThemeId = i.QuizThemeId,
+                    QuizTheme = i.QuizTheme
+
 
 
 
                 })
                 .ToPagedResultAsync(request);
+                            return pagedResult;
+                        }
+                        else
+                        {
+                            PagedResult<NoticeBoardResponse> pagedResult = await _context
 
-            return pagedResult;
+                .NoticeBoards.AsQueryable().Include(a => a.Country).Include(a => a.City).Include(a => a.QuizTheme).Include(a => a.AuthUser)
+                .Select(i => new NoticeBoardResponse
+
+                {
+                    Id = i.Id,
+                    Name = i.Name,
+                    DateWhen = i.DateWhen,
+                    CityId = i.CityId,
+                    AuthUserId = i.AuthUserId,
+                    AuthUser = i.AuthUser,
+                    Country = i.Country,
+                    CountryId = i.CountryId,
+                    City = i.City,
+                    QuizThemeId = i.QuizThemeId,
+                    QuizTheme = i.QuizTheme
+
+
+
+
+                })
+                .ToPagedResultAsync(request);
+                            return pagedResult;
+                        }
+            //var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+
         }
 
         public async Task<NoticeBoardResponse> GetByIdAsync(int id)
@@ -51,7 +97,13 @@ namespace PubQuiz.Services
                     Id = i.Id,
                     Name = i.Name,
                     DateWhen = i.DateWhen,
-                    CityId = i.CityId
+                    CityId = i.CityId,
+                    AuthUserId = i.AuthUserId,
+                    Country = i.Country,
+                    CountryId = i.CountryId,
+                    City = i.City,
+                    QuizThemeId = i.QuizThemeId,
+                    QuizTheme = i.QuizTheme
 
                 })
                 .FirstAsync();
@@ -72,7 +124,7 @@ namespace PubQuiz.Services
             _context.Entry(item).State = EntityState.Modified;
             return await _context.SaveChangesAsync();
         }
-    
+
 
         public async Task<NoticeBoard> FindAsync(int id)
         {
@@ -81,9 +133,9 @@ namespace PubQuiz.Services
 
         public async Task<NoticeBoard> PostNoticeBoard(NoticeBoard item)
         {
-        _context.NoticeBoards.Add(item);
-        await _context.SaveChangesAsync();
-        return item;
+            _context.NoticeBoards.Add(item);
+            await _context.SaveChangesAsync();
+            return item;
         }
 
     }

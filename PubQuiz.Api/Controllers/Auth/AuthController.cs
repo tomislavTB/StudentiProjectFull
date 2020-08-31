@@ -8,12 +8,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using PubQuiz.DB;
 using PubQuiz.Model.Users;
+using PubQuiz.Requests;
 using PubQuiz.Requests.Auth;
 using PubQuiz.Responses;
 using PubQuiz.Services.Contracts;
+using PubQuiz.Shared.Pagination;
 
 namespace PubQuiz.Controllers.Auth
 {
@@ -24,6 +28,16 @@ namespace PubQuiz.Controllers.Auth
         private readonly SignInManager<AuthUser> _signInManager;
         private readonly UserManager<AuthUser> _userManager;
         private readonly IConfiguration _configuration;
+        private readonly IUserService Users;
+        private readonly PubQuizContext context;
+
+        //public DbContextOptions<PubQuizContext> options = new DbContextOptions<PubQuizContext>();
+
+        //private PubQuizContext _context = new PubQuizContext(DbContextOptions < PubQuizContext > bla)
+        //{
+        //    : base(options)
+        //}
+
         public AuthController(
             UserManager<AuthUser> userManager,
             SignInManager<AuthUser> signInManager,
@@ -46,7 +60,8 @@ namespace PubQuiz.Controllers.Auth
                     User = new AuthUserResponse
                     {
                         Id = appUser.Id,
-                        Email = appUser.Email
+                        Email = appUser.Email,
+                        Admin = appUser.Admin
                     },
                     Token = GenerateJwtToken(appUser.Email, appUser).ToString()
                 };
@@ -67,19 +82,33 @@ namespace PubQuiz.Controllers.Auth
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, false);
-                
+
                 return new RegisterResponse
                 {
                     User = new AuthUserResponse
                     {
                         Id = user.Id,
-                        Email = user.Email
+                        Email = user.Email,
+                        Admin = user.Admin
                     },
                     Token = GenerateJwtToken(user.Email, user).ToString()
                 };
             }
             throw new ApplicationException("UNKNOWN_ERROR");
         }
+
+
+        [HttpGet]
+        [Route("getAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            var users = await _userManager.Users.ToListAsync();
+
+            return ApiOk(users);
+
+        }
+
+
         [Authorize]
         [HttpGet]
         public object Protected()
@@ -92,7 +121,7 @@ namespace PubQuiz.Controllers.Auth
            {
                new Claim(JwtRegisteredClaimNames.Sub, email),
                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-               // new Claim(ClaimTypes.NameIdentifier, user.Id)
+               new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
            };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

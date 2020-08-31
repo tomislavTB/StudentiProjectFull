@@ -13,14 +13,17 @@ import { GetstartedModule } from './getstarted/getstarted.module';
 import { AuthTokenInterceptor } from './shared/auth-token.interceptor';
 import { QuizThemeModule } from './quiz-theme/quiz-theme.module';
 import { QuizzesModule } from './quizzes/quizzes.module';
-import { ChampionListComponent } from './champion/champion-list/champion-list.component';
-import { ChampionFormComponent } from './champion/champion-form/champion-form.component';
 import { ChampionModule } from './champion/champion.module';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { FormsModule } from '@angular/forms';
+import { UsersModule } from './users/users.module';
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,12 @@ import { ChampionModule } from './champion/champion.module';
     BrowserAnimationsModule,
     QuizzesModule,
     ChampionModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    CKEditorModule,
+    FormsModule,
+    UsersModule,
+
+
 
   ],
     providers: [

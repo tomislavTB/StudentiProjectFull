@@ -45,11 +45,11 @@ namespace PubQuiz.Extensions
         public static void NoticeBoard(this Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
 
         {
-            modelBuilder.Entity<NoticeBoard>().HasData(new NoticeBoard { Id = 1, Name = "kvz od 100 sudionika jdhasudhasjd", DateWhen = new DateTimeOffset(2008, 5, 1, 8, 6, 32, 545, new TimeSpan(1, 0, 0)), CityId = 1, CoutryId = 1, QuizThemeId = 1, AuthUserId = 1 });
-            modelBuilder.Entity<NoticeBoard>().HasData(new NoticeBoard { Id = 2, Name = "nasjkbdcjsdkbfcjksdbcvjbsdvjcbsdjkb", DateWhen = new DateTimeOffset(2008, 5, 1, 8, 6, 32, 545, new TimeSpan(1, 0, 0)), CityId = 2, CoutryId = 1, QuizThemeId = 1, AuthUserId = 1 });
-            modelBuilder.Entity<NoticeBoard>().HasData(new NoticeBoard { Id = 3, Name = "hjdgbdasndbhjasdgbbzbdajn jikghdjnasjkdnasuji", DateWhen = new DateTimeOffset(2008, 5, 1, 8, 6, 32, 545, new TimeSpan(1, 0, 0)), CityId = 1, CoutryId = 1, QuizThemeId = 1, AuthUserId = 1 });
-            modelBuilder.Entity<NoticeBoard>().HasData(new NoticeBoard { Id = 4, Name = "hjdbashjdbsbbbdasjkd nhjbdasjkndasb dashjdbasjkd", DateWhen = new DateTimeOffset(2008, 5, 1, 8, 6, 32, 545, new TimeSpan(1, 0, 0)), CityId = 3, CoutryId = 1, QuizThemeId = 1, AuthUserId = 1 });
-            modelBuilder.Entity<NoticeBoard>().HasData(new NoticeBoard { Id = 5, Name = "jasdbashjkdbashjk d asdasdjiabhndjas dhjasdbnhasd ", DateWhen = new DateTimeOffset(2008, 5, 1, 8, 6, 32, 545, new TimeSpan(1, 0, 0)), CityId = 4, CoutryId = 1, QuizThemeId = 1, AuthUserId = 1 });
+            modelBuilder.Entity<NoticeBoard>().HasData(new NoticeBoard { Id = 1, Name = "kvz od 100 sudionika jdhasudhasjd", DateWhen = new DateTimeOffset(2008, 5, 1, 8, 6, 32, 545, new TimeSpan(1, 0, 0)), CityId = 1, CountryId = 1, QuizThemeId = 1, AuthUserId = 1 });
+            modelBuilder.Entity<NoticeBoard>().HasData(new NoticeBoard { Id = 2, Name = "nasjkbdcjsdkbfcjksdbcvjbsdvjcbsdjkb", DateWhen = new DateTimeOffset(2008, 5, 1, 8, 6, 32, 545, new TimeSpan(1, 0, 0)), CityId = 2, CountryId = 1, QuizThemeId = 1, AuthUserId = 1 });
+            modelBuilder.Entity<NoticeBoard>().HasData(new NoticeBoard { Id = 3, Name = "hjdgbdasndbhjasdgbbzbdajn jikghdjnasjkdnasuji", DateWhen = new DateTimeOffset(2008, 5, 1, 8, 6, 32, 545, new TimeSpan(1, 0, 0)), CityId = 1, CountryId = 1, QuizThemeId = 1, AuthUserId = 1 });
+            modelBuilder.Entity<NoticeBoard>().HasData(new NoticeBoard { Id = 4, Name = "hjdbashjdbsbbbdasjkd nhjbdasjkndasb dashjdbasjkd", DateWhen = new DateTimeOffset(2008, 5, 1, 8, 6, 32, 545, new TimeSpan(1, 0, 0)), CityId = 3, CountryId = 1, QuizThemeId = 1, AuthUserId = 1 });
+            modelBuilder.Entity<NoticeBoard>().HasData(new NoticeBoard { Id = 5, Name = "jasdbashjkdbashjk d asdasdjiabhndjas dhjasdbnhasd ", DateWhen = new DateTimeOffset(2008, 5, 1, 8, 6, 32, 545, new TimeSpan(1, 0, 0)), CityId = 4, CountryId = 1, QuizThemeId = 1, AuthUserId = 1 });
         }
         public static void QuizTheme(this Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
 
@@ -68,12 +68,12 @@ namespace PubQuiz.Extensions
         public static void Champion(this Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
 
         {
-            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 1, NoticeBoardId = 1});
-            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 2, NoticeBoardId = 2 });
-            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 3, NoticeBoardId = 1});
-            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 4, NoticeBoardId = 2});
-            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 5, NoticeBoardId = 1});
-            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 6, NoticeBoardId = 2});
+            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 1, Name = "tomi@gmail.com", NoticeBoardId = 1});
+            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 2, Name = "slavko@gmail.com", NoticeBoardId = 2 });
+            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 3, Name = "marko@gmail.com", NoticeBoardId = 1});
+            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 4, Name = "sjiksdjha@gmail.com", NoticeBoardId = 2});
+            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 5, Name = "toddi@gmail.com", NoticeBoardId = 1});
+            modelBuilder.Entity<Champion>().HasData(new Champion { Id = 6, Name = "tomeee@gmail.com", NoticeBoardId = 2});
         }
     }
 }

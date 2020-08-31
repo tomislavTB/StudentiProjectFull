@@ -25,6 +25,7 @@ namespace PubQuiz.Controllers
         }
 
         [HttpGet]
+        [Route("getChampions")]
         public async Task<IActionResult> GetPage([FromQuery] ChampionRequest request = null)
         {
             PagedResult<ChampionResponse> pagedResult = await Champions.GetPageAsync(request);

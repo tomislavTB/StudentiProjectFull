@@ -4,8 +4,10 @@ import { CommonModule } from '@angular/common';
 import { CityRoutingModule } from './city-routing.module';
 import { CityListComponent } from './city-list/city-list.component';
 import { CityFormComponent } from './city-form/city-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 
@@ -15,7 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     CityRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    NgbDatepickerModule,
+    NgxDatatableModule,
+    NgbModule 
   ]
 })
 export class CityModule { }

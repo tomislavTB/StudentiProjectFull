@@ -10,6 +10,11 @@
       border-top-left-radius:50%;
       border-top-right-radius:50%;
       float: right;
+      background: lightblue
+      }
+
+      .all {
+        background-image: url(../assets/Images/imageForMainPage.jpg);
       }
 
       .searchbar{
@@ -101,6 +106,12 @@ a:hover {
   font-size: 25px;
   margin: 0px;
 }
+.nav {
+  font-weight: bold;
+  color: white  !important;
+  font-size: 20px;
+  margin: 0px;
+}
 
 .dropdown-item {
   color: black !important;
@@ -109,4 +120,8 @@ a:hover {
 
 .dropdown-menu :hover {
   background-color: transparent;
+}
+
+#loading {
+  background-color: #f8f9fa;
 }

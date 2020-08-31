@@ -14,8 +14,10 @@ export class AppComponent implements OnInit {
 
   // tslint:disable-next-line:member-ordering
   public user = {
-    email: ''
+    email: '',
+    admin: false
   };
+  admin: boolean;
 
   title = 'PubQuiz-web';
 
@@ -25,6 +27,11 @@ export class AppComponent implements OnInit {
 
   public setUser() {
     this.user = this.jwt.getUser();
+    if(this.user){
+      if(this.user.admin == true){
+        this.admin = true
+      }
+    }
   }
   public delStorage() {
     localStorage.clear();

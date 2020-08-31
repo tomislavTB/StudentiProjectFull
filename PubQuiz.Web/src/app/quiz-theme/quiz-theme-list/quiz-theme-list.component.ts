@@ -3,6 +3,7 @@ import { QuizThemeService } from '../quiz-theme.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { FormService } from 'src/app/shared/form.service';
+import { NgxDatatablePageLimitEnum } from 'src/app/shared/ngx-datatable-page-limit.enum';
 
 @Component({
   selector: 'app-quiz-theme-list',
@@ -13,17 +14,17 @@ export class QuizThemeListComponent implements OnInit {
 
   constructor(private quizThemeService: QuizThemeService, private toastr: ToastrService, private router: Router, private form: FormService
     ) { }
-
+    login: any;
     private quizThemes = [];
 
     ngOnInit() {
       this. getQuizThemes();
+      this.login = localStorage.getItem('auth_user')
   }
 
     getQuizThemes()
      { this.quizThemeService.getAll().subscribe((response: any) => {
       this.quizThemes = response.response.data;
-      console.log(this.quizThemes);
       
   });
 }
@@ -46,5 +47,7 @@ onEdit(quizThemeId) {
   this.form.show();
   this.router.navigate(['quizThemes', quizThemeId]);
 }
-
+get pageLimit() {
+  return NgxDatatablePageLimitEnum.limit;
+}
 }

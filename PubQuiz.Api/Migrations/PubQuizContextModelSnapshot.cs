@@ -135,6 +135,8 @@ namespace PubQuiz.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<bool>("Admin");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -146,8 +148,6 @@ namespace PubQuiz.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(100);
-
-                    b.Property<string>("Gender");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -195,13 +195,13 @@ namespace PubQuiz.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AuthUserId");
-
                     b.Property<DateTime>("CreatedAt");
 
                     b.Property<bool>("IsDeleted");
 
                     b.Property<DateTime?>("LastModifiedAt");
+
+                    b.Property<string>("Name");
 
                     b.Property<int>("NoticeBoardId");
 
@@ -353,7 +353,7 @@ namespace PubQuiz.Migrations
 
                     b.Property<int>("CityId");
 
-                    b.Property<int>("CoutryId");
+                    b.Property<int>("CountryId");
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -370,9 +370,11 @@ namespace PubQuiz.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthUserId");
+
                     b.HasIndex("CityId");
 
-                    b.HasIndex("CoutryId");
+                    b.HasIndex("CountryId");
 
                     b.HasIndex("QuizThemeId");
 
@@ -384,7 +386,7 @@ namespace PubQuiz.Migrations
                             Id = 1,
                             AuthUserId = 1,
                             CityId = 1,
-                            CoutryId = 1,
+                            CountryId = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateWhen = new DateTimeOffset(new DateTime(2008, 5, 1, 8, 6, 32, 545, DateTimeKind.Unspecified), new TimeSpan(0, 1, 0, 0, 0)),
                             IsDeleted = false,
@@ -396,7 +398,7 @@ namespace PubQuiz.Migrations
                             Id = 2,
                             AuthUserId = 1,
                             CityId = 2,
-                            CoutryId = 1,
+                            CountryId = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateWhen = new DateTimeOffset(new DateTime(2008, 5, 1, 8, 6, 32, 545, DateTimeKind.Unspecified), new TimeSpan(0, 1, 0, 0, 0)),
                             IsDeleted = false,
@@ -408,7 +410,7 @@ namespace PubQuiz.Migrations
                             Id = 3,
                             AuthUserId = 1,
                             CityId = 1,
-                            CoutryId = 1,
+                            CountryId = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateWhen = new DateTimeOffset(new DateTime(2008, 5, 1, 8, 6, 32, 545, DateTimeKind.Unspecified), new TimeSpan(0, 1, 0, 0, 0)),
                             IsDeleted = false,
@@ -420,7 +422,7 @@ namespace PubQuiz.Migrations
                             Id = 4,
                             AuthUserId = 1,
                             CityId = 3,
-                            CoutryId = 1,
+                            CountryId = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateWhen = new DateTimeOffset(new DateTime(2008, 5, 1, 8, 6, 32, 545, DateTimeKind.Unspecified), new TimeSpan(0, 1, 0, 0, 0)),
                             IsDeleted = false,
@@ -432,7 +434,7 @@ namespace PubQuiz.Migrations
                             Id = 5,
                             AuthUserId = 1,
                             CityId = 4,
-                            CoutryId = 1,
+                            CountryId = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateWhen = new DateTimeOffset(new DateTime(2008, 5, 1, 8, 6, 32, 545, DateTimeKind.Unspecified), new TimeSpan(0, 1, 0, 0, 0)),
                             IsDeleted = false,
@@ -589,6 +591,11 @@ namespace PubQuiz.Migrations
 
             modelBuilder.Entity("PubQuiz.Models.NoticeBoard", b =>
                 {
+                    b.HasOne("PubQuiz.Model.Users.AuthUser", "AuthUser")
+                        .WithMany()
+                        .HasForeignKey("AuthUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("PubQuiz.Models.City", "City")
                         .WithMany("NoticeBoards")
                         .HasForeignKey("CityId")
@@ -596,8 +603,8 @@ namespace PubQuiz.Migrations
 
                     b.HasOne("PubQuiz.Models.Country", "Country")
                         .WithMany("NoticeBoards")
-                        .HasForeignKey("CoutryId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("PubQuiz.Models.QuizTheme", "QuizTheme")
                         .WithMany("NoticeBoards")

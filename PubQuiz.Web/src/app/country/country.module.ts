@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { CountryRoutingModule } from './country-routing.module';
 import { CountryListComponent } from './country-list/country-list.component';
 import { CountryFormComponent } from './country-form/country-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -13,7 +15,11 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CountryRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgbDatepickerModule,
+    NgxDatatableModule,
+    NgbModule
   ]
 })
 export class CountryModule { }

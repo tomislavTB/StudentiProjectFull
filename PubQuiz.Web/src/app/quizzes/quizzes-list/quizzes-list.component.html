@@ -1,8 +1,7 @@
-<form class="form-inline md-form mr-auto mb-4 float-right">
+<!-- <form class="form-inline md-form mr-auto mb-4 float-right">
     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
     <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
-  </form>
-  <div>
+  </form> -->
       <div class="mb-3"><h2><b>Kvizovi</b></h2><strong>uređivanje/dodavanje</strong></div>
     <div class="row">
         <div class="col-sm-12 mb-3">
@@ -12,10 +11,10 @@
         </div>
     </div>
   <div>
-    <table class="table table-striped table-hover">
+    <!-- <table class="table table-striped table-hover">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Naziv kviza</th>
+                <th scope="col">Opis kviza</th>
                 <th scope="col">Grad</th>
                 <th scope="col">Država</th>
                 <th scope="col">Tema kviza</th>
@@ -24,23 +23,98 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let course of courses; let i = index">
+            <tr *ngFor="let quiz of quizzess; let i = index">
                 <td>{{ quiz.name }}</td>
                 <td>{{ quiz.city.name }}</td>
                 <td>{{ quiz.country.name }}</td>
-                <td>{{ quiz.theme.name }}</td>
-                <td>{{ quiz.user.name }}</td>
+                <td>{{ quiz.quizTheme.name }}</td>
+                <td>{{ quiz.authUser.email }}</td>
   
                 <td class="action">
-                  <button class="btn btn-sm"><i class="fa fa-edit" (click)="onEdit(course.id)"></i></button>
-                  <button class="btn delete btn-sm btn-danger ml-3" (click)="onDelete(course.id)"><i class="fa fa-trash"></i></button>
+                  <button class="btn btn-sm"><i class="fa fa-edit" (click)="onEdit(quiz.id)"></i></button>
+                  <button class="btn delete btn-sm btn-danger ml-3" (click)="onDelete(quiz.id)"><i class="fa fa-trash"></i></button>
               </td>
   
   
             </tr>
         </tbody>
-    </table>
-    <div class ='row'>
+    </table> -->
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card o-hidden">
+          <ngx-datatable style="box-shadow: none;" class="material horizontal-table-scroll" columnMode="force" [headerHeight]="50"
+            [footerHeight]="50" [rowHeight]="'50'" [limit]="pageLimit" [loadingIndicator]="isLoading" [rows]="myQuizzess" [messages]="{
+              emptyMessage:'Nema odabranih rezultata',
+              totalMessage: 'ukupno',
+              selectedMessage: 'odabran'
+            }">
+            <ngx-datatable-column name="name"  [comparator]="sortI18nComparator" [sortable]="true">
+              <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span class="data-table-sortable-header" (click)="sort()">
+                  Ime Kviza
+                </span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="city"  [comparator]="sortI18nComparator" [sortable]="true">
+              <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span class="data-table-sortable-header" (click)="sort()">
+                  Ime Grada
+                </span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="country"  [comparator]="sortI18nComparator" [sortable]="true">
+              <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span class="data-table-sortable-header" (click)="sort()">
+                  Država
+                </span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="quizTheme"  [comparator]="sortI18nComparator" [sortable]="true">
+              <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span class="data-table-sortable-header" (click)="sort()">
+                  Tema kviza
+                </span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="authUser"  [comparator]="sortI18nComparator" [sortable]="true">
+              <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span class="data-table-sortable-header" (click)="sort()">
+                  Korisnik
+                </span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="dateWhen"  [comparator]="sortI18nComparator" [sortable]="true">
+              <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span class="data-table-sortable-header" (click)="sort()">
+                  Datum održavanja
+                </span>
+              </ng-template>
+              <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                {{value | date:'dd/MM/yyyy' }}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="actions">
+              <ng-template ngx-datatable-header-template>
+                Mogućnosti
+              </ng-template>
+              <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                <div class="m-btn-group m-btn-group--pill btn-group" role="group" aria-label="First group">
+                  <button type="button" class="btn btn-sm"(click)="onEdit(row)"><i class="fa fa-edit" title="Uredi"></i>
+                   
+                  </button>
+                  <button type="button"class="btn delete btn-sm btn-danger ml-3" title="Izbriši" (click)="onDelete(row.id)"><i class="fa fa-trash"></i>
+                  </button>
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class ='row'>
         <div class = 'col'>
       <nav aria-label="Page navigation example">
           <ul class="pagination">
@@ -74,6 +148,6 @@
             </div>
           </div>
         </div>
-    </div>
+    </div> -->
   
   

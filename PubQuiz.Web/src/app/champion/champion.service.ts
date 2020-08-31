@@ -25,7 +25,7 @@ export class ChampionService {
 
 
   public getAll() {
-    return this.http.get(environment.apiUrl + this.CHAMPIONS_URL);
+    return this.http.get(environment.apiUrl + this.CHAMPIONS_URL + '/' + 'getChampions');
     
   }
 
@@ -41,6 +41,7 @@ export class ChampionService {
   }
 
   public addOne(champion) {
+    
     return this.http.post(this.getRootUrl(), champion);
   }
 
@@ -59,10 +60,10 @@ export class ChampionService {
       );
   }
 
-  public submit(champion) {
-    if (!champion.id) {
-      return this.addOne(champion);
-    }
-    return this.putOne(champion.id, champion);
-  }
+  public submit(champion, isEdit, id) {
+    if(isEdit == false) {
+     return this.addOne(champion);
+   }
+     return this.putOne(id, champion);
+ }
 }

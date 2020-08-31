@@ -70,6 +70,7 @@ export class CityFormComponent implements OnInit {
   }
   goBack() {
     this.location.back();
+    this.toastr.warning('Nije uneseno');
   }
   getCountries() {
     this.countryService.getAll().subscribe((response: any) => {

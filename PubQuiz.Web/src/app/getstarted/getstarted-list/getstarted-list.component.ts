@@ -27,7 +27,6 @@ export class GetstartedListComponent implements OnInit {
   public registerData = {
     firstname: '',
     lastname: '',
-    gender: '',
     email: '',
     password: ''
   };
@@ -37,7 +36,6 @@ export class GetstartedListComponent implements OnInit {
 
   public onSubmit() {
     this.auth.register(this.registerData).subscribe((response: any) => {
-      console.log(this.registerData);
       
       const token = response.token;
       this.jwt.setToken(token);

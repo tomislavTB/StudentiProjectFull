@@ -1,1 +1,29 @@
-<p>champion-form works!</p>
+<div class="modal-body">
+  <div>
+    <form [formGroup]="ChampionGroup" (submit)="onSubmit()">
+          <input title="id" name="id" type="hidden" />
+
+    <div class="form-group">
+      <label for="noticeBoardId">Izaberi kviz</label>
+      <select class="form-control" name="noticeBoardId" formControlName="noticeBoardId">
+        <option *ngFor="let quizz of quizzes" [ngValue]="quizz.id">
+          {{quizz.name}}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-12  mb-3">
+      <label for="name" class="required">Pobjednik kviza(e-mail)</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Ime"
+        formControlName="name">
+      <div class="invalid-feedback">Polje je obavezno</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary float-right">Spremi</button>
+    </form>
+    <button (click)="goBack()" class="btn btn-outline-primary float-left">Odustani</button>
+    </div>
+    <br><br>
+    
+
+</div>

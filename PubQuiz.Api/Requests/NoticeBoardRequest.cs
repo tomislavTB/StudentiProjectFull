@@ -12,6 +12,8 @@ namespace PubQuiz.Requests
 
         public string OrderBy { get; set; }
 
+        public long userId { get; set; }
+
         public override IQueryable<NoticeBoardResponse> GetFilteredQuery(IQueryable<NoticeBoardResponse> query)
         {
             if (!string.IsNullOrWhiteSpace(Name))

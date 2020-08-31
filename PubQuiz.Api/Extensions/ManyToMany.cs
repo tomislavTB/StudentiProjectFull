@@ -20,18 +20,18 @@ namespace PubQuiz.Extensions
         private static void NoticeBoard(Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<NoticeBoard>()
-                .HasOne(bc => bc.City)
-                .WithMany(b => b.NoticeBoards)
-                .HasForeignKey(bc => bc.CityId);
-            modelBuilder.Entity<NoticeBoard>()
-                .HasOne(bc => bc.Country)
-                .WithMany(c => c.NoticeBoards)
-                .HasForeignKey(bc => bc.CoutryId);
-            modelBuilder.Entity<NoticeBoard>()
-                .HasOne(bc => bc.QuizTheme)
-                .WithMany(c => c.NoticeBoards)
-                .HasForeignKey(bc => bc.QuizThemeId);
+            //modelBuilder.Entity<NoticeBoard>()
+            //    .HasOne(bc => bc.City)
+            //    .WithMany(b => b.NoticeBoards)
+            //    .HasForeignKey(bc => bc.CityId);
+            //modelBuilder.Entity<NoticeBoard>()
+            //    .HasOne(bc => bc.Country)
+            //    .WithMany(c => c.NoticeBoards)
+            //    .HasForeignKey(bc => bc.CoutryId);
+            //modelBuilder.Entity<NoticeBoard>()
+            //    .HasOne(bc => bc.QuizTheme)
+            //    .WithMany(c => c.NoticeBoards)
+            //    .HasForeignKey(bc => bc.QuizThemeId);
 
         }
 
@@ -39,10 +39,10 @@ namespace PubQuiz.Extensions
         private static void Champion(Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<Champion>()
-                .HasOne(bc => bc.NoticeBoard)
-                .WithMany(b => b.Champions)
-                .HasForeignKey(bc => bc.NoticeBoardId);
+            //modelBuilder.Entity<Champion>()
+            //    .HasOne(bc => bc.NoticeBoard)
+            //    .WithMany(b => b.Champions)
+            //    .HasForeignKey(bc => bc.NoticeBoardId);
         }
     }
 }

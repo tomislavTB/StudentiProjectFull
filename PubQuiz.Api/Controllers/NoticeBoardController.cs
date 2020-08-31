@@ -24,9 +24,18 @@ namespace PubQuiz.Controllers
         }
 
         [HttpGet]
+        [Route("getNoticeboards")]
         public async Task<IActionResult> GetPage([FromQuery] NoticeBoardRequest request = null)
         {
-            PagedResult<NoticeBoardResponse> pagedResult = await NoticeBoards.GetPageAsync(request);
+            PagedResult<NoticeBoardResponse> pagedResult = await NoticeBoards.GetPageAsync(0, request);
+            return ApiOk(pagedResult);
+        }
+
+        [HttpPost]
+        [Route("getNoticeboardsPost")]
+        public async Task<IActionResult> GetPage2([FromBody] NoticeBoardRequest request = null)
+        {
+            PagedResult<NoticeBoardResponse> pagedResult = await NoticeBoards.GetPageAsync(request.userId, request);
             return ApiOk(pagedResult);
         }
 
@@ -48,7 +57,8 @@ namespace PubQuiz.Controllers
 
         // POST
         [HttpPost]
-        public async Task<IActionResult> PostNoticeBoarditem(NoticeBoard item)
+        [Route("noticeBoards")]
+        public async Task<IActionResult> PostNoticeBoarditem([FromBody]NoticeBoard item)
         {
             return ApiOk(await NoticeBoards.PostNoticeBoard(item));
         }

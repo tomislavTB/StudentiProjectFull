@@ -11,9 +11,11 @@ namespace PubQuiz.Responses
     public class ChampionResponse
     {
         public long Id { get; set; }
-
+        public string Name { get; set; }
+        public string AuthUser { get; set; }
         public int NoticeBoardId { get; set; }
         public NoticeBoard NoticeBoard { get; set; }
+        
 
 
     }

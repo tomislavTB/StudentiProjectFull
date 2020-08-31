@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { FormService } from 'src/app/shared/form.service';
 import { Pagination } from 'src/app/shared/Response/Pagination';
+import { NgxDatatablePageLimitEnum } from 'src/app/shared/ngx-datatable-page-limit.enum';
 
 @Component({
   selector: 'app-country-list',
@@ -14,21 +15,35 @@ export class CountryListComponent implements OnInit {
 
   constructor(private countryService: CountryService, private toastr: ToastrService, private router: Router, private form: FormService
     ) { }
-
+    newCountries: any;
+    login: any;
     private countries = [];
     public pagination: Pagination;
     public currentPage: number = 1;
 
     ngOnInit() {
       this.getCountries();
+      this.login = localStorage.getItem('auth_user')
   }
 
   getCountries() {
     this.countryService
-    .getPage(this.currentPage)
-    .subscribe(({ data, pagination }) =>  {
-    this.countries = data;
-    this.pagination = pagination;
+    .getAll()
+    .subscribe((response: any) =>  {
+    const myCities = [];
+    this.countries = response.response.data;
+    if(this.countries && this.countries.length > 0){
+      this.countries.forEach(row => {
+        myCities.push({
+            'id': row.id,
+            'name': row.name,
+        });
+        
+     }  
+     
+  );
+  this.newCountries = [...myCities]; 
+    }
   });
 
   }
@@ -45,20 +60,20 @@ export class CountryListComponent implements OnInit {
 }
 
 
-nextPage() {
-  this.currentPage++;
-  this.getCountries();
-}
+// nextPage() {
+//   this.currentPage++;
+//   this.getCountries();
+// }
 
-prevPage() {
-  if(this.currentPage <= 1) {
-    this.currentPage = 1;
-  } else {
-    this.currentPage--;
-  }
+// prevPage() {
+//   if(this.currentPage <= 1) {
+//     this.currentPage = 1;
+//   } else {
+//     this.currentPage--;
+//   }
 
-  this.getCountries();
-}
+//   this.getCountries();
+// }
 
 
 onAdd() {
@@ -70,5 +85,7 @@ onEdit(countryId) {
   this.router.navigate(['countries', countryId]);
 }
 
-
+get pageLimit() {
+  return NgxDatatablePageLimitEnum.limit;
+}
 }

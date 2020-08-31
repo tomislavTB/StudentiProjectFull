@@ -63,6 +63,7 @@ onSubmit() {
 }
 goBack() {
   this.location.back();
+  this.toastr.warning('Nije uneseno');
 }
 
 }

@@ -1,5 +1,5 @@
 
-    <div class="slika">
+    <!-- <div class="slika">
       <div class="content" *ngIf="!user || user.email.length == 0">
           <h1>Dobrodošli na mrežu fakulteta</h1>
           <h3>Prijavite se za korištenje </h3>
@@ -8,4 +8,99 @@
             <h1>Uspješno ste se prijavili</h1>
             <h4>Ovom aplikacijum omogućujemo povezivanje više fakulteta na jednom mjestu. Imate mogućnost brisanja, promjene i unos novih podataka te pregled postoječih. </h4>
         </div>
-    </div>
+    </div> -->
+
+   
+
+        <!-- <button type="button" class="btn btn-outline-primary" (click)="">Preuzmi korisničke upute<i class="i-File-Download"></i></button> -->
+     
+
+      <form [formGroup]="filter">
+        <div class="row mb-3">
+          <div  class="col-sm-12 mb-0 pb-0"></div>
+          <div class="col-sm-2 mb-0 pb-0">
+            <label for="city">Grad:</label>
+            <select class="form-control" name="cityId" formControlName="cityFilter" (change)="filterMainTable($event)" clearAllText="Očisti">
+              <option *ngFor="let city of cities" [ngValue]="city.id">
+                {{city.name}}
+              </option>
+            </select>
+            </div>
+            <div class="col-sm-2 mb-0 pb-0">
+            <label for="country">Država:</label>
+            <select class="form-control" name="countryId" formControlName="countryFilter" (change)="filterMainTable($event)">
+              <option *ngFor="let country of countries" [ngValue]="country.id">
+                {{country.name}}
+              </option>
+            </select>
+          </div>
+          <div class="col-sm-2 mb-0 pb-0">
+            <label for="quizTheme">Tema kviza:</label>
+            <select class="form-control" name="themeId" formControlName="quizThemeFilter" (change)="filterMainTable($event)">
+              <option *ngFor="let theme of themes" [ngValue]="theme.id">
+                {{theme.name}}
+              </option>
+            </select>
+          </div>
+            <!-- <div class="col-sm-2 mb-0 pb-0">
+            <div class="form-group">
+              <label for="themeId">Datum kviza:</label>
+              <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd"
+                       name="dp" formControlName="dateWhen" ngbDatepicker #d="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="far fa-calendar-alt" (click)="d.toggle()" type="button"></button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="col-sm-2 mb-0 pb-0">
+            <label for="themeId">Očisti filtere:</label>
+            <div class="col-sm-6 mb-0 pb-0">
+               <button class="btn add btn-secondary float-right" (click)="clear()">
+              <i class="fa fa-times" aria-hidden="true" style="color: red;"></i>
+          </button></div>
+            </div>
+        </div>
+      </form>
+      <br>
+      
+<!--       
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card o-hidden">
+            <ngx-datatable #ngxDatatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+              rowHeight="auto" [limit]="pageLimit" [loadingIndicator]="isLoading" [rows]="myQuizzess" [messages]="{
+                  emptyMessage:'Nema odabranih rezultata',
+                  totalMessage: 'ukupno',
+                  selectedMessage: 'odabran'
+                }">
+              <ngx-datatable-column *ngFor="let col of columns; let i = index" [name]="col.name" [prop]="col.prop"
+                [resizeable]="true" [sortable]="true" [flexGrow]="1" [width]="col.width ? col.width : false">
+      
+      
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span (click)="sort()">
+                    {{ col.name }}
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="mt-5" style="overflow-x:auto;">
+        <div *ngFor="let quizz of myQuizzess">
+          <table class="table table-bordered">
+            <tr>
+              <td><div>Kviz se nalazi u {{ quizz.country }} u gradu {{ quizz.city }} sa temom {{ quizz.quizTheme }}</div></td>
+            </tr>
+            <tr>
+              <th><div [innerHTML]="quizz.name"></div></th>
+            </tr>
+            <td>Kviz se održava datuma: {{ quizz.dateWhen | date:'dd/MM/yyyy'}} <div> Organizator kviza: {{quizz.authUser}}</div></td>
+          </table>
+         <br>
+        </div>
+      </div>

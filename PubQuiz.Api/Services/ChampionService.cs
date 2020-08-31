@@ -27,11 +27,14 @@ namespace PubQuiz.Services
         public async Task<PagedResult<ChampionResponse>> GetPageAsync(ChampionRequest request)
         {
             PagedResult<ChampionResponse> pagedResult = await _context
-                .Champion.AsQueryable()
+                .Champion.AsQueryable().Include(r => r.NoticeBoard).Include(r => r.NoticeBoard.AuthUser).Include(r => r.NoticeBoard.QuizTheme).Include(r => r.NoticeBoard.Country).Include(r => r.NoticeBoard.City)
                 .Select(i => new ChampionResponse
                 {
                     Id = i.Id,
-                    NoticeBoardId = i.NoticeBoardId
+                    NoticeBoardId = i.NoticeBoardId,
+                    NoticeBoard = i.NoticeBoard,
+                    AuthUser = i.NoticeBoard.AuthUser.Email,
+                    Name = i.Name
 
                 })
                 .ToPagedResultAsync(request);

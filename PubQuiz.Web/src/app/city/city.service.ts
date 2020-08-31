@@ -26,7 +26,7 @@ export class CityService {
   public getAll() {
     const token = this.jwt.getFullToken();
     let headers = new  HttpHeaders().set('Authorization', token);
-    return this.http.get(environment.apiUrl + this.CITIES_URL, { headers });
+    return this.http.get(environment.apiUrl + this.CITIES_URL);
   }
 
   public deleteOne(cityId) {
@@ -47,16 +47,16 @@ export class CityService {
     return this.http.put(this.formatUrl(cityId), city);
   }
 
-  public getPage(page = 1) {
-    return this
-      .http
-      .get(environment.apiUrl + 'cities?page=' + page)
-      .pipe(
-        map((raw: PaginationResponse<City>) => {
-          return raw.response;
-        })
-      );
-  }
+  // public getPage(page = 1) {
+  //   return this
+  //     .http
+  //     .get(environment.apiUrl + 'cities?page=' + page)
+  //     .pipe(
+  //       map((raw: PaginationResponse<City>) => {
+  //         return raw.response;
+  //       })
+  //     );
+  // }
 
   public submit(city) {
     if (!city.id) {

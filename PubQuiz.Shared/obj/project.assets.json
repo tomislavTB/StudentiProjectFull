@@ -4056,23 +4056,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tomislav\\.nuget\\packages\\": {},
+    "C:\\Users\\tomislav.buhovac\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tomislav\\Desktop\\Zavrsni rad\\PubQuiz\\PubQuiz.Shared\\PubQuiz.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\tomislav.buhovac\\Desktop\\Završni aplikacija\\QuizzApp\\PubQuiz.Shared\\PubQuiz.Shared.csproj",
       "projectName": "PubQuiz.Shared",
-      "projectPath": "C:\\Users\\Tomislav\\Desktop\\Zavrsni rad\\PubQuiz\\PubQuiz.Shared\\PubQuiz.Shared.csproj",
-      "packagesPath": "C:\\Users\\Tomislav\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tomislav\\Desktop\\Zavrsni rad\\PubQuiz\\PubQuiz.Shared\\obj\\",
+      "projectPath": "C:\\Users\\tomislav.buhovac\\Desktop\\Završni aplikacija\\QuizzApp\\PubQuiz.Shared\\PubQuiz.Shared.csproj",
+      "packagesPath": "C:\\Users\\tomislav.buhovac\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tomislav.buhovac\\Desktop\\Završni aplikacija\\QuizzApp\\PubQuiz.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Tomislav\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tomislav.buhovac\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4121,7 +4121,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

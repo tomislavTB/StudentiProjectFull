@@ -1,1 +1,60 @@
-<p>quizzes-form works!</p>
+<div class="modal-body">
+    <div>
+      <form [formGroup]="modalNoteGroup" (submit)="onSubmit()">
+            <input title="id" name="id" type="hidden" />
+      <div class="form-group">
+        <label for="countryId">Izaberi državu</label>
+        <select class="form-control" name="countryId" formControlName="countryId">
+          <option *ngFor="let country of countries" [ngValue]="country.id">
+            {{country.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="cityId">Izaberi grad</label>
+        <select class="form-control" name="cityId" formControlName="cityId">
+          <option *ngFor="let city of cities" [ngValue]="city.id">
+            {{city.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="themeId">Izaberi temu kviza</label>
+        <select class="form-control" name="themeId" formControlName="quizThemeId">
+          <option *ngFor="let theme of themes" [ngValue]="theme.id">
+            {{theme.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="themeId">Datum održavanja kviza</label>
+        <div class="input-group">
+          <input class="form-control" placeholder="yyyy-mm-dd"
+                 name="dp" formControlName="dateWhen" ngbDatepicker #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="far fa-calendar-alt" (click)="d.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
+        <label for="content" class="required">Sadržaj</label>
+      <ckeditor class="col-sm-12 col-md-12 col-lg-12 mb-3 editor"
+      formControlName="name"
+		    [editor]="Editor"
+		    id="content"
+		    name="content">
+	    </ckeditor>
+      </div>
+      <button type="submit" class="btn btn-primary float-right">Spremi</button>
+      </form>
+      <button (click)="goBack()" class="btn btn-outline-primary float-left">Odustani</button>
+      </div>
+      <br><br>
+      
+
+</div>

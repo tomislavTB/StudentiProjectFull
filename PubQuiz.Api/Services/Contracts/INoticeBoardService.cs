@@ -8,7 +8,7 @@ namespace PubQuiz.Services.Contracts
 {
     public interface INoticeBoardService
     {
-        Task<PagedResult<NoticeBoardResponse>> GetPageAsync(NoticeBoardRequest request);
+        Task<PagedResult<NoticeBoardResponse>> GetPageAsync(long userId, NoticeBoardRequest request = null);
         Task<NoticeBoardResponse> GetByIdAsync(int id);
 
         Task<int> DeleteByIdAsync(int id);

@@ -12,7 +12,7 @@ namespace PubQuiz.Shared.Pagination
         public int? Page { get; set; } = 1;
 
         [Range(0, 200)]
-        public int? PageSize { get; set; } = 10;
+        public int? PageSize { get; set; } = 150;
 
         public abstract IQueryable<T> GetFilteredQuery(IQueryable<T> query);
 

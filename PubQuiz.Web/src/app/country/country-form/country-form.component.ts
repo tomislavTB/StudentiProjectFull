@@ -47,6 +47,7 @@ export class CountryFormComponent implements OnInit {
 
   goBack() {
     this.location.back();
+    this.toastr.warning('Nije uneseno');
   }
 
   onSubmit() {

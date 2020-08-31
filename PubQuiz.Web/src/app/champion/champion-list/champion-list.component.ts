@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { FormService } from 'src/app/shared/form.service';
 import { Pagination } from 'src/app/shared/Response/Pagination';
 import { ChampionService } from '../champion.service';
+import { ChampionFormComponent } from '../champion-form/champion-form.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgxDatatablePageLimitEnum } from 'src/app/shared/ngx-datatable-page-limit.enum';
 
 @Component({
   selector: 'app-champion-list',
@@ -13,22 +16,53 @@ import { ChampionService } from '../champion.service';
 export class ChampionListComponent implements OnInit{
 
 
-  constructor(private championService: ChampionService, private toastr: ToastrService, private router: Router, private form: FormService
+  constructor(private championService: ChampionService, private toastr: ToastrService, private router: Router, private form: FormService, private ngbModalService: NgbModal,
     ) { }
 
+  fullChampions: any;
   private champions = [];
   public pagination: Pagination;
   public currentPage: number = 1;
+  user: any;
+  admin: any;
 
   ngOnInit() {
     this.getChampions();
+    if(JSON.parse(localStorage.getItem('auth_user'))){
+      this.user = JSON.parse(localStorage.getItem('auth_user'))
+      if(this.user){
+        if(this.user.admin == true){
+          this.admin = true;
+        }
+        else{
+          this.admin = false;
+        }
+        
+      }
+    }
 
   }
 
   getChampions()
   { this.championService.getAll().subscribe((response: any) => {
+   const Champion = [];
+      
    this.champions = response.response.data;
-   console.log(this.champions);
+   if(this.champions && this.champions.length > 0){
+     this.champions.forEach(row => {
+      Champion.push({
+           'id': row.id,
+           'organizator': row.authUser,
+           'name': row.noticeBoard.name,
+           'dateWhen': row.noticeBoard.dateWhen,
+           'champion': row.name
+       });
+       
+    }  
+    
+ );
+ this.fullChampions = [...Champion]; 
+   }
    
 });
 }
@@ -60,12 +94,32 @@ prevPage() {
   this.getChampions();
 }
 
-onAdd() {
-   this.router.navigate(['champions/new']);
+
+onEdit(row) {
+  // this.form.show();
+  const modalRef = this.ngbModalService.open(ChampionFormComponent, { size: 'lg', backdrop: 'static', keyboard: false});
+    if(row) {
+    modalRef.componentInstance.row = row;
+  }
+  modalRef.result.then(result => {
+    if (result == 'ok') {
+      this.getChampions();
+    }
+    }).catch((res) => {});
+  
 }
 
-onEdit(championId) {
-  this.form.show();
-  this.router.navigate(['champions', championId]);
+onAdd() {
+  // this.form.show();
+  const modalRef = this.ngbModalService.open(ChampionFormComponent, { size: 'lg', backdrop: 'static', keyboard: false});
+  modalRef.result.then(result => {
+    if (result == 'ok') {
+      this.getChampions();
+    }
+    }).catch((res) => {});
+    
+}
+get pageLimit() {
+  return NgxDatatablePageLimitEnum.limit;
 }
 }
